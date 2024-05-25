@@ -1,112 +1,181 @@
-*{
-    margin: 0 auto;
+/* Reset básico para garantir consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis CSS para facilitar a manutenção */
+:root {
+  --background-color: #2E3440;
+  --primary-color: #88C0D0;
+  --secondary-color: #4C566A;
+  --accent-color: #8FBCBB;
+  --text-color: #ECEFF4;
+  --font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Estilo global */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Estilo para a logo */
+.logo {
+  max-width: 100%;
+  width: 300px; /* Ajustado para um tamanho menor */
+  margin-bottom: 16px; /* Reduzido para um espaço menor */
+}
+
+/* Container de entrada */
+.container-input {
+  width: 100%;
+  max-width: 480px;
+  margin: 14px 0;
+}
+
+.container-input span {
+  color: var(--text-color);
+  font-size: 18px; /* Reduzido para um tamanho menor */
+  
+  margin-bottom: 10px;
+}
+
+/* Estilo para o slider */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--secondary-color);
+  outline: none;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+/* Botão de chamada para ação */
+.button-cta {
+  width: 100%;
+  max-width: 480px;
+  height: 40px; /* Ajustado para um tamanho menor */
+  margin-top: 30px; /* Reduzido para um espaço menor */
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 18px; /* Reduzido para um tamanho menor */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-cta:hover {
+  background-color: var(--primary-color);
+}
+
+/* Container de senha */
+.container-password {
+  width: 100%;
+  max-width: 480px;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.title {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 24px; /* Reduzido para um tamanho menor */
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+/* Estilo para a senha */
+.password {
+  width: 100%;
+  height: 50px; /* Ajustado para um tamanho menor */
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  border-radius: 5px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.password:hover {
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+}
+
+/* Tooltip */
+.tooltip {
+  color: var(--text-color);
+  position: relative;
+  top: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  background: var(--primary-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, bottom 0.3s;
+  text-align: center;
+}
+
+.container-password:hover .tooltip {
+  bottom: 60px;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Classe para esconder elementos */
+.hide {
+  display: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .logo {
+    width: 200px; /* Ajuste adicional para dispositivos menores */
+  }
+
+  .container-input,
+  .button-cta,
+  .password {
     width: 100%;
-    box-sizing: border-box;
-    font-family: sans-serif;
   }
-  
-  body{
-    background-color: #18181B;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .logo{
-    max-width: 600px;
-    margin-bottom: 24px;
-  }
-  
-  .container-input{
-    max-width: 480px;
-    margin: 14px 0;
-  }
-  
+
   .container-input span {
-    color: #FFF;
-    font-size: 22px;
+    font-size: 16px; /* Ajuste adicional para dispositivos menores */
   }
-  
-  .slider {
-    margin-top: 8px;
-    -webkit-appearance: none;
-    width: 100%;
-    height: 18px;
-    border-radius: 5px;  
-    background: #DFDFDF;
-    outline: none;
-    opacity: 0.7;
+
+  .button-cta {
+    height: 35px; /* Ajuste adicional para dispositivos menores */
+    font-size: 16px; /* Ajuste adicional para dispositivos menores */
   }
-  
-  .button-cta{
-    height: 40px;
-    margin-top: 40px;
-    background-color: #3EB72B;
-    border:0;
-    border-radius: 4px;
-    color: #FFF;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+
+  .title {
+    font-size: 20px; /* Ajuste adicional para dispositivos menores */
   }
-  
-  .container-password{
-    max-width: 480px;
-    margin: 14px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
+
+  .tooltip {
+    font-size: 12px; /* Ajuste adicional para dispositivos menores */
   }
-  
-  .title{
-    text-align: center;
-    color: #FFF;
-    font-size: 28px;
-    margin-top: 24px;
-    margin-bottom: 8px;
-  } 
-  
-  .password{
-    height: 60px;
-    background-color: rgba(0,0,0,0.40);
-    border: 1px solid #313131;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FFF;
-    border-radius: 4px;
-    transition: transform 0.5s;
-  }
-  .password:hover{
-    transform: scale(1.05);
-    border-color: #FFF;
-  }
-  
-  .hide{
-    display: none;
-  }
-  
-  .tooltip{
-    color: #FFF;
-    position: relative;
-    top: 20px;
-    padding: 6px 8px;
-    font-size: 16px;
-    border-radius: 6px;
-    background: rgb(15, 15, 15);
-    opacity: 0;
-    visibility: hidden;
-    transition: all .5s ease-in-out;
-    text-align: center;
-  }
-  
-  .container-password:hover .tooltip{
-    bottom: 50px;
-    visibility: visible;
-    opacity: 1;
-  }
+}
